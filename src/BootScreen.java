@@ -10,22 +10,20 @@ import java.awt.event.ActionListener;
 
 public class BootScreen extends JPanel implements ActionListener {
 
-    GridBagConstraints c = new GridBagConstraints();
+    private GridBagConstraints c = new GridBagConstraints();
 
-    JFrame frame = new JFrame();
+    private JFrame frame = new JFrame();
 
-    SpinnerNumberModel arraySizeModel = new SpinnerNumberModel(50, 0, 100000000, 1);
-    SpinnerNumberModel speedModel = new SpinnerNumberModel(20, 0, 10000, 1);
-    //SpinnerNumberModel algSelectModel = new SpinnerNumberModel(1, 1, 5, 1);
+    private SpinnerNumberModel arraySizeModel = new SpinnerNumberModel(50, 0, 100000000, 1);
+    private SpinnerNumberModel speedModel = new SpinnerNumberModel(20, 0, 10000, 1);
 
-    JSpinner arraySizeSpinner = new JSpinner(arraySizeModel);
-    JSpinner speedSpinner = new JSpinner(speedModel);
-    //JSpinner algSelectSpinner = new JSpinner(algSelectModel);
-	JComboBox algSelectDropDown = new JComboBox(Algorithm.algNames);
+    private JSpinner arraySizeSpinner = new JSpinner(arraySizeModel);
+    private JSpinner speedSpinner = new JSpinner(speedModel);
+    private JComboBox algSelectDropDown = new JComboBox(Algorithm.algNames);
 
-    JButton start = new JButton("Start");
+    private JButton start = new JButton("Start");
 
-    BootScreen() {
+    public BootScreen() {
         frame.setTitle("Settings");
         frame.setSize(500, 250);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
