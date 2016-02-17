@@ -29,7 +29,6 @@ public class BootScreen extends JPanel implements ActionListener {
         frame.setSize(500, 250);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.add(this);
-        frame.setVisible(true);
 
         //TODO: make sure the option display without manually resizing
 
@@ -72,6 +71,7 @@ public class BootScreen extends JPanel implements ActionListener {
         c.gridy = 3;
         add(start, c);
 
+        frame.setVisible(true);
         start.addActionListener(this);
     }
 
