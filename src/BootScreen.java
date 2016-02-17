@@ -16,11 +16,12 @@ public class BootScreen extends JPanel implements ActionListener {
 
     SpinnerNumberModel arraySizeModel = new SpinnerNumberModel(50, 0, 100000000, 1);
     SpinnerNumberModel speedModel = new SpinnerNumberModel(20, 0, 10000, 1);
-    SpinnerNumberModel algSelectModel = new SpinnerNumberModel(1, 1, 5, 1);
+    //SpinnerNumberModel algSelectModel = new SpinnerNumberModel(1, 1, 5, 1);
 
     JSpinner arraySizeSpinner = new JSpinner(arraySizeModel);
     JSpinner speedSpinner = new JSpinner(speedModel);
-    JSpinner algSelectSpinner = new JSpinner(algSelectModel);
+    //JSpinner algSelectSpinner = new JSpinner(algSelectModel);
+	JComboBox algSelectDropDown = new JComboBox(Algorithm.algNames);
 
     JButton start = new JButton("Start");
 
@@ -65,7 +66,7 @@ public class BootScreen extends JPanel implements ActionListener {
         c.gridx = 1;
         c.gridy = 2;
         c.anchor = GridBagConstraints.LINE_START;
-        add(algSelectSpinner, c);
+        add(algSelectDropDown, c);
 
         c.gridx = 1;
         c.gridy = 3;
@@ -82,6 +83,6 @@ public class BootScreen extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         new Algorithm(Integer.parseInt(arraySizeModel.getValue().toString()), Integer.parseInt
-                (speedModel.getValue().toString()), Integer.parseInt(algSelectModel.getValue().toString()));
+                (speedModel.getValue().toString()), algSelectDropDown.getSelectedIndex());
     }
 }
