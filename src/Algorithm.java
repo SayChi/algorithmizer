@@ -12,6 +12,8 @@ public class Algorithm {
     Array A;
     MaxHeap MH;
 
+	static String[] algNames = new String[]{"Selection Sort", "Insertion Sort", "Bubble Sort", "Quick Sort",
+			"Heap Sort"};
     int type;
     int[] pointers;
     final int delay;
@@ -24,7 +26,7 @@ public class Algorithm {
         //init
         this.n = arraySize;
         this.delay = delay;
-        this.gui = new GUI(this);
+        this.gui = new GUI(this, algNames[algSelect]);
 
         //weird stuff with swing worker to make sure gui updates
         new SwingWorker<Void, Void>() {

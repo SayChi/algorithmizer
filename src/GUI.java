@@ -14,11 +14,13 @@ public class GUI extends JPanel implements KeyListener {
     JFrame frame = new JFrame();
     JScrollPane scrollPane = new JScrollPane(this);
     Algorithm alg;
+	String algName;
     double multiplier = 1.0;    //used for zoom
 
     //initializing the frame (weird scroll pane stuff, don't worry, cause I don't understand it either)
-    GUI(Algorithm algIn) {
-        alg = algIn;
+    GUI(Algorithm alg, String algName) {
+        this.alg = alg;
+		this.algName = algName;
         frame.addKeyListener(this);
 
         frame.setSize(1080, 720);
@@ -35,13 +37,13 @@ public class GUI extends JPanel implements KeyListener {
         scrollPane.setBounds(0, 0, frame.getWidth() - 15, frame.getHeight() - 45);
         temp.add(scrollPane);
 
-        setPreferredSize(new Dimension(alg.n, scrollPane.getHeight() - 45));
+        setPreferredSize(new Dimension(this.alg.n, scrollPane.getHeight() - 45));
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        frame.setTitle("n = " + alg.n + "   steps: " + alg.steps);
+        frame.setTitle(algName + "   n = " + alg.n + "   steps: " + alg.steps);
         scrollPane.setBounds(0, 0, frame.getWidth() - 15, frame.getHeight() - 45);
         scrollPane.revalidate();
         switch (alg.type) {
