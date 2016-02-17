@@ -14,17 +14,17 @@ public class Algorithm {
 
     int type;
     int[] pointers;
-    int delay;
-    int n;
+    final int delay;
+    final int n;
     long steps;
 
     GUI gui;
 
-    Algorithm(int arraySize, int delaySet, final int algSelect) {
+    Algorithm(int arraySize, int delay, final int algSelect) {
         //init
-        n = arraySize;
-        delay = delaySet;
-        gui = new GUI(this);
+        this.n = arraySize;
+        this.delay = delay;
+        this.gui = new GUI(this);
 
         //weird stuff with swing worker to make sure gui updates
         new SwingWorker<Void, Void>() {
@@ -183,7 +183,7 @@ public class Algorithm {
                 steps++;
                 publish();
                 try {
-                    Thread.sleep(delay);
+                    Thread.sleep(Algorithm.this.delay); //delay in uS
                 } catch (InterruptedException e) {
                 }
             }
