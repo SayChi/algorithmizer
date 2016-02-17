@@ -30,6 +30,8 @@ public class BootScreen extends JPanel implements ActionListener {
 		frame.add(this);
 		frame.setVisible(true);
 
+		//TODO: make sure the option display without manually resizing
+
 		setLayout(new GridBagLayout());
 
 		c.fill = GridBagConstraints.NONE;
